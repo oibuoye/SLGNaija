@@ -1,0 +1,22 @@
+{
+  "name": "statesandlgasinnigeria",
+  "version": "1.0.0",
+  "description": "This contains api that can be used to get all the states in Nigeria and also to get local governments for a particular state.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Opeyemi Ibuoye",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "config": "^3.1.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^3.18.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.5.12",
+    "morgan": "^1.9.1",
+    "winston": "^3.2.1"
+  }
+}
