@@ -12,8 +12,8 @@ router.post('/', async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const isStateExist = await State.findOne({stateName: req.body.stateName});
-  if(isStateExist != null){
+  const isStateExist = await State.findOne({ stateName: req.body.stateName });
+  if (isStateExist != null) {
     return res.status(400).send("State already exist");
   }
 
@@ -51,5 +51,29 @@ router.get('/:id', async (req, res) => {
 
   res.send(state);
 });
+
+router.post('/bundle', async (req, res) => {
+  const request = req.body;
+  if(request.length === 0){
+    return res.status(400).send("Bad request");
+  }
+
+
+  for (let i = 0; i < request.length; i++) {
+    const { error } = validate(request[i]);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    const isStateExist = await State.findOne({ stateName: request[i].stateName });
+    if (isStateExist != null) {
+      return res.status(400).send("State already exist. State Name => " + request[i].stateName);
+    }
+
+    let state = new State({ stateName: request[i].stateName });
+    state = await state.save();
+  }
+  res.send("Successful");
+
+});
+
 
 module.exports = router;
