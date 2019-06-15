@@ -4,7 +4,7 @@ const winston = require('winston');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const getstates = await State.find();
+  const getstates = await State.find().select('-__v');
   res.send(getstates);
 });
 
@@ -45,7 +45,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const state = await State.findById(req.params.id);
+  const state = await State.findById(req.params.id).select('-__v');
 
   if (!state) return res.status(404).send('The state with the given ID was not found. ');
 
