@@ -12,12 +12,12 @@ router.post('/', async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const isStateExist = await State.findOne({ stateName: req.body.stateName });
+  const isStateExist = await State.findOne({ name: req.body.name });
   if (isStateExist != null) {
     return res.status(400).send("State already exist");
   }
 
-  let state = new State({ stateName: req.body.stateName });
+  let state = new State({ name: req.body.name });
   state = await state.save();
 
   res.send(state);
@@ -27,7 +27,7 @@ router.put('/:id', async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const state = await State.findByIdAndUpdate(req.params.id, { name: req.body.stateName }, {
+  const state = await State.findByIdAndUpdate(req.params.id, { name: req.body.Name }, {
     new: true
   });
 
@@ -63,12 +63,12 @@ router.post('/bundle', async (req, res) => {
     const { error } = validate(request[i]);
     if (error) return res.status(400).send(error.details[0].message);
 
-    const isStateExist = await State.findOne({ stateName: request[i].stateName });
+    const isStateExist = await State.findOne({ name: request[i].name });
     if (isStateExist != null) {
-      return res.status(400).send("State already exist. State Name => " + request[i].stateName);
+      return res.status(400).send("State already exist. State Name => " + request[i].name);
     }
 
-    let state = new State({ stateName: request[i].stateName });
+    let state = new State({ name: request[i].name });
     state = await state.save();
   }
   res.send("Successful");

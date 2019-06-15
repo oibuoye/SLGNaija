@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 
 const lgaSchema = new mongoose.Schema({
-    LGAName: {
+  LGAName: {
       type: String,
       required: true,
       minlength: 3,
