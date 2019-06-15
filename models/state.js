@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 
 const stateSchema = new mongoose.Schema({
-    stateName: {
+    name: {
       type: String,
       required: true,
       minlength: 3,
@@ -16,7 +16,7 @@ const State = mongoose.model('State', stateSchema);
 
 function validateState(State) {
   const schema = {
-    stateName: Joi.string().min(3).max(50).required()
+    name: Joi.string().min(3).max(50).required()
   };
 
   return Joi.validate(State, schema);
