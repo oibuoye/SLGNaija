@@ -22,9 +22,9 @@ The API is currently being hosted on https://slgnaija.herokuapp.com
 ]
 
 
--   `GET` /api/states/67263538769e0300171887365
+  `GET` /api/states/67263538769e0300171887365
 
-```json
+json
 
     {
         "_id": "67263538769e0300171887365",
@@ -34,7 +34,7 @@ The API is currently being hosted on https://slgnaija.herokuapp.com
 
 -   `GET` /api/lgas  - Get all LGAs
 
-```json
+json
 [
     {
         "_id": "67263538769e0300171887365",
@@ -50,7 +50,7 @@ The API is currently being hosted on https://slgnaija.herokuapp.com
 
 -   `GET` /api/lgas/Abia - Get by state name
 
-```json
+json
 [
     {
         "_id": "67263538769e0300171887365",
