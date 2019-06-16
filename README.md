@@ -6,7 +6,7 @@ The API is used to manage states and local governments in Nigeria in a MongoDB d
 ### Live API Documentation
 The API is currently being hosted on https://slgnaija.herokuapp.com
 
-### State ### GET HTTP Response
+###### State GET HTTP Response
 -   `GET` /api/states
 
 ```json
@@ -20,21 +20,23 @@ The API is currently being hosted on https://slgnaija.herokuapp.com
         "name": "Adamawa"
     }
 ]
+```
 
+###### State GET HTTP Response
+-  `GET` /api/states/67263538769e0300171887365
 
-  `GET` /api/states/67263538769e0300171887365
-
-json
+```json
 
     {
         "_id": "67263538769e0300171887365",
         "name": "Abia"
     }
+```
 
-
+###### GET HTTP Response
 -   `GET` /api/lgas  - Get all LGAs
 
-json
+```json
 [
     {
         "_id": "67263538769e0300171887365",
@@ -47,10 +49,11 @@ json
         "stateName": "Lagos"
     }
 ]
-
+```
+###### GET HTTP Response
 -   `GET` /api/lgas/Abia - Get by state name
 
-json
+```json
 [
     {
         "_id": "67263538769e0300171887365",
@@ -63,7 +66,7 @@ json
         "stateName": "Abia"
     }
 ]
-
+```
 
 
 
