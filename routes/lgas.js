@@ -52,10 +52,9 @@ router.delete('/:id', async (req, res) => {
   res.send(lga);
 });
 
-router.get('/:id', async (req, res) => {
-  const lga = await LGA.findById(req.params.id).select('-__v');
-
-  if (!lga) return res.status(404).send('The LGA with the given ID was not found. ');
+router.get('/:stateName', async (req, res) => {
+  const lga = await LGA.find({ stateName: req.params.stateName }).select('-__v');
+  if (lga.length === 0) return res.status(404).send('The LGA with the state name ' + req.params.stateName + ' was not found. ');
 
   res.send(lga);
 });
